@@ -39,14 +39,14 @@ def get_user_details(email: str) -> dict:
     return user
 
 
-@mcp.tool()
-def get_current_time() -> dict:
-    """Return the current server time."""
-    now = datetime.now()
-    return {
-        "iso": now.isoformat(),
-        "readable": now.strftime("%Y-%m-%d %H:%M:%S"),
-    }
+# @mcp.tool()
+# def get_current_time() -> dict:
+#     """Return the current server time."""
+#     now = datetime.now()
+#     return {
+#         "iso": now.isoformat(),
+#         "readable": now.strftime("%Y-%m-%d %H:%M:%S"),
+#     }
 
 
 if __name__ == "__main__":
