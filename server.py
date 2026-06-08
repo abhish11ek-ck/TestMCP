@@ -1,6 +1,6 @@
 from fastmcp import FastMCP
 from datetime import datetime
-import os
+import os, json
 
 mcp = FastMCP("Demo MCP Server")
 
@@ -31,12 +31,12 @@ USERS = {
 
 
 @mcp.tool()
-def get_user_details(email: str) -> dict:
+def get_user_details(email: str) -> str:
     """Return user details (fullname, phone, email, address, designation) for a given email ID."""
     user = USERS.get(email.lower().strip())
     if not user:
-        return {"error": f"No user found with email: {email}"}
-    return user
+        return json.dumps({"error": f"No user found with email: {email}"})
+    return json.dumps(user)
 
 
 # @mcp.tool()
